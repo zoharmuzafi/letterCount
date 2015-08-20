@@ -1,4 +1,4 @@
-describe("Player", function() {
+describe("letterCounter", function() {
   var letterCount = require('../letterCount.js');
 
   it("count all the letters in a word", function() {
