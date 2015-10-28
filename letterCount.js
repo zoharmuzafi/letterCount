@@ -7,22 +7,14 @@
  * letterCount("apple");
  **/
 function letterCount(word) {
-  // Create a placeholder object to fill.
-  var characterCount = {};
-  // Lowercase the word, remove any non-"word" characters and then convert to a list of characters.
-  // NOTE WHAT IS \W?! It is a regular expression, checkout regular expression syntax.
-  var characters = word.replace(/\W/g, "").toLowerCase().split('');
-
-  // Iterate over the characters. Can you do this with another type of for loop? PROVE IT I DARE YOU!
-  characters.forEach(function(character){
-    // If we don't have a count for this character, we initialize it as 0.
-    if (!(character in characterCount)) {
-      characterCount[character] = 0;
-    }
-
-    // Increment the character count.
-    characterCount[character]++;
-  });
-
-  return characterCount;
+  // NOTE WHY WOULD YOU EVEN?! THIS IS HORRIBLE! But I'll explain what it does.
+  // Question: Why is it so bad?
+  return word.split("") // Same as before, we split the word.
+    .filter(
+        function(character) { return character.match(/[^\W]/); }) // Instead of doing an efficient replace, we filter on characters.
+    .map(
+        function(character) { return character.toLowerCase(); }) // Convert each character to a lowerCase version.
+    .reduce(function(count, character) {
+      count[character] = (count[character] || 0) + 1; // Sum the number of occurrences using a "Counter" object.
+      return count;}, {});
 }
