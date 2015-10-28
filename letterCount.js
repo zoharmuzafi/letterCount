@@ -9,8 +9,9 @@
 function letterCount(word) {
   // Create a placeholder object to fill.
   var characterCount = {};
-  // Convert a word to a list of characters.
-  var characters = word.split('');
+  // Lowercase the word, remove any non-"word" characters and then convert to a list of characters.
+  // NOTE WHAT IS \W?! It is a regular expression, checkout regular expression syntax.
+  var characters = word.replace(/\W/g, "").toLowerCase().split('');
 
   // Iterate over the characters. Can you do this with another type of for loop? PROVE IT I DARE YOU!
   characters.forEach(function(character){
