@@ -5,9 +5,23 @@
  * @example
  * // returns {"a": 1, "p": 2, "l": 1, "e": 1}
  * letterCount("apple");
- * @todo Implement this function then remove this todo.
  **/
 function letterCount(word) {
+  // Create a placeholder object to fill.
   var characterCount = {};
+  // Convert a word to a list of characters.
+  var characters = word.split('');
+
+  // Iterate over the characters. Can you do this with another type of for loop? PROVE IT I DARE YOU!
+  characters.forEach(function(character){
+    // If we don't have a count for this character, we initialize it as 0.
+    if (!(character in characterCount)) {
+      characterCount[character] = 0;
+    }
+
+    // Increment the character count.
+    characterCount[character]++;
+  });
+
   return characterCount;
 }
