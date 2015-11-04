@@ -9,5 +9,21 @@
  **/
 function letterCount(word) {
   var characterCount = {};
+  var arr = word.split("");
+  var count=1;
+  	arr.sort();
+  	for(; arr.length >= 1;){		
+  			if(arr[0]===arr[1]){
+  				count+=1;
+  			}
+  			else{
+  				characterCount[arr[0]] = count;
+  				count = 1;
+  			}
+  			arr.shift(arr[0]);
+     
+  }
+
   return characterCount;
 }
+
